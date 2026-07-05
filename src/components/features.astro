@@ -42,27 +42,27 @@ const features = [
 ];
 ---
 
-<div class="mt-16 md:mt-0">
-  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+<div class="mt-8 md:mt-0 px-4 md:px-0">
+  <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold lg:tracking-tight leading-tight">
     Practical marketing support for local businesses
   </h2>
-  <p class="text-lg mt-4 text-slate-600">
+  <p class="text-base sm:text-lg mt-4 text-slate-600 leading-relaxed">
     We combine creative content, modern technology, and real management
     experience to help small businesses grow without making digital marketing
     feel confusing or expensive.
   </p>
 </div>
 
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 md:mt-16 gap-8 md:gap-16 px-4 md:px-0">
   {
     features.map((item) => (
-      <div class="flex gap-4 items-start">
-        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
-          <Icon class="text-white" name={item.icon} />
+      <div class="flex gap-3 md:gap-4 items-start">
+        <div class="mt-1 bg-black rounded-full p-2 w-8 h-8 md:w-8 md:h-8 shrink-0 flex items-center justify-center">
+          <Icon class="text-white w-5 h-5 md:w-5 md:h-5" name={item.icon} />
         </div>
-        <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
-          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold text-base md:text-lg">{item.title}</h3>
+          <p class="text-slate-500 text-sm md:text-base mt-2 leading-relaxed">{item.description}</p>
         </div>
       </div>
     ))

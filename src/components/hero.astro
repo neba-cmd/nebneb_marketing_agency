@@ -6,7 +6,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+  class="grid lg:grid-cols-2 place-items-center pt-8 pb-4 md:pt-12 md:pb-24 px-4 md:px-0">
   <div class="py-6 md:order-1 hidden md:block">
     <Picture
       src={heroImage}
@@ -19,32 +19,31 @@ import { Icon } from "astro-icon/components";
   </div>
   <div>
     <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+      class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter leading-tight">
       Helping small businesses build a stronger online presence
     </h1>
-    <p class="text-lg mt-4 text-slate-600 max-w-xl">
+    <p class="text-base sm:text-lg mt-4 text-slate-600 max-w-xl leading-relaxed">
       We create social media content, websites, SEO support, review management,
       and digital strategies that help local businesses get seen, trusted, and
       chosen online.
     </p>
-    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+    <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-3">
       <Link
         href="/contact"
-        class="flex gap-1 items-center justify-center"
+        class="flex gap-2 items-center justify-center text-sm sm:text-base"
         rel="noopener">
-        <Icon class="text-white w-5 h-5" name="bx:bxs-message-square-dots" />
-
-        Let&apos;s build your online presence
+        <Icon class="text-white w-5 h-5 flex-shrink-0" name="bx:bxs-message-square-dots" />
+        <span>Let&apos;s build your online presence</span>
       </Link>
       <Link
         size="lg"
         style="outline"
         rel="noopener"
         href="/pricing"
-        class="flex gap-1 items-center justify-center"
+        class="flex gap-2 items-center justify-center text-sm sm:text-base"
         >
-        <Icon class="text-black w-4 h-4" name="bx:bxs-briefcase" />
-        View our services
+        <Icon class="text-black w-4 h-4 flex-shrink-0" name="bx:bxs-briefcase" />
+        <span>View our services</span>
       </Link>
     </div>
   </div>

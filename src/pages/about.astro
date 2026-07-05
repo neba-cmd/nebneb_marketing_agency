@@ -21,23 +21,23 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
       </Fragment>
     </Sectionhead>
 
-    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-gray-800">
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-12 md:mt-16 px-4 md:px-0">
+      <h2 class="font-bold text-2xl sm:text-3xl md:text-3xl text-gray-800 leading-tight">
         We understand small businesses because we are building one too.
       </h2>
-      <p class="text-lg leading-relaxed text-slate-500">
+      <p class="text-base sm:text-lg leading-relaxed text-slate-500">
         Time, budget, consistency, and visibility can be difficult when you are
         running a local business. nebneb helps turn those challenges into a
         practical marketing system, with storytelling, content, websites, SEO,
         reviews, and online management working together.
       </p>
-      <p class="text-lg leading-relaxed text-slate-500">
+      <p class="text-base sm:text-lg leading-relaxed text-slate-500">
         We do more than create nice-looking content. We help small businesses
         build recognisable local brands that customers can find, understand, and
         choose with confidence.
       </p>
     </div>
-    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-12">
+    <div class="grid md:grid-cols-2 gap-6 md:gap-10 mx-auto max-w-4xl mt-12 md:mt-12 px-4 md:px-0">
       {
         publishedTeamMembers.map((teamMemberEntry) => (
           <div class="group">
@@ -53,8 +53,8 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
             </div>
 
             <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
-              <h3 class="text-sm text-slate-500">
+              <h2 class="text-base md:text-lg text-gray-800 font-semibold">{teamMemberEntry.data.name}</h2>
+              <h3 class="text-xs md:text-sm text-slate-500 mt-1">
                 {teamMemberEntry.data.title}
               </h3>
               {

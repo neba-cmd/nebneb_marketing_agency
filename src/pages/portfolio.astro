@@ -53,11 +53,11 @@ const toInstagramEmbedUrl = (url: string) => {
       </Fragment>
     </Sectionhead>
 
-    <div class="mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-gray-800">
+    <div class="mx-auto max-w-4xl mt-12 md:mt-16 px-4 md:px-0">
+      <h2 class="font-bold text-2xl sm:text-3xl md:text-3xl text-gray-800 leading-tight">
         Content that helps people see, trust, and remember your business.
       </h2>
-      <p class="text-lg leading-relaxed text-slate-500 mt-3">
+      <p class="text-base sm:text-lg leading-relaxed text-slate-500 mt-3">
         This space is built for finished Instagram posts, short-form videos,
         and original photography. As new work is added, the gallery will keep
         the same clean layout while giving visitors a simple way to explore the
@@ -65,36 +65,36 @@ const toInstagramEmbedUrl = (url: string) => {
       </p>
     </div>
 
-    <section class="mx-auto max-w-5xl mt-16">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+    <section class="mx-auto max-w-5xl mt-12 md:mt-16 px-4 md:px-0">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <h2 class="text-3xl font-bold text-gray-800">Instagram work</h2>
-          <p class="text-slate-500 mt-2">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">Instagram work</h2>
+          <p class="text-slate-500 text-sm md:text-base mt-2">
             Reels and posts can be embedded here once they are live on
             Instagram.
           </p>
         </div>
-        <Link href="/contact" style="outline">Plan content like this</Link>
+        <Link href="/contact" style="outline" class="w-full md:w-auto justify-center md:justify-start">Plan content like this</Link>
       </div>
 
       {
         instagramPosts.length > 0 ? (
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-8">
             {instagramPosts.map((postUrl) => (
               <iframe
                 src={toInstagramEmbedUrl(postUrl)}
                 title="Instagram portfolio post"
-                class="w-full min-h-[520px] rounded-md border-2 border-[#D8DEE9] bg-white"
+                class="w-full min-h-[400px] md:min-h-[520px] rounded-md border-2 border-[#D8DEE9] bg-white"
                 loading="lazy"
               />
             ))}
           </div>
         ) : (
-          <div class="mt-8 border-2 border-dashed border-[#D8DEE9] rounded-md p-8 text-center">
-            <h3 class="font-semibold text-xl text-gray-800">
+          <div class="mt-8 border-2 border-dashed border-[#D8DEE9] rounded-md p-6 md:p-8 text-center">
+            <h3 class="font-semibold text-lg md:text-xl text-gray-800">
               Instagram portfolio coming soon
             </h3>
-            <p class="text-slate-500 mt-2">
+            <p class="text-slate-500 text-sm md:text-base mt-2">
               Add Instagram Reel or post links in the portfolio page file to
               show embedded social content here.
             </p>
@@ -103,9 +103,9 @@ const toInstagramEmbedUrl = (url: string) => {
       }
     </section>
 
-    <section class="mx-auto max-w-5xl mt-20">
-      <h2 class="text-3xl font-bold text-gray-800">Photography gallery</h2>
-      <p class="text-slate-500 mt-2">
+    <section class="mx-auto max-w-5xl mt-16 md:mt-20 px-4 md:px-0">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">Photography gallery</h2>
+      <p class="text-slate-500 text-sm md:text-base mt-2">
         Original photos from shoots, brand sessions, products, food, interiors,
         teams, and local business stories.
       </p>
@@ -128,12 +128,12 @@ const toInstagramEmbedUrl = (url: string) => {
             ))}
           </div>
         ) : (
-          <div class="mt-8 border-2 border-dashed border-[#D8DEE9] rounded-md p-8 text-center">
-            <h3 class="font-semibold text-xl text-gray-800">
+          <div class="mt-8 border-2 border-dashed border-[#D8DEE9] rounded-md p-6 md:p-8 text-center">
+            <h3 class="font-semibold text-lg md:text-xl text-gray-800">
               Photo gallery ready for your work
             </h3>
-            <p class="text-slate-500 mt-2">
-              Drop image files into <code>public/portfolio/photos</code> and
+            <p class="text-slate-500 text-sm md:text-base mt-2">
+              Drop image files into <code class="text-xs md:text-sm">public/portfolio/photos</code> and
               rebuild the site to publish them here.
             </p>
           </div>
@@ -141,16 +141,16 @@ const toInstagramEmbedUrl = (url: string) => {
       }
     </section>
 
-    <section class="mx-auto max-w-5xl mt-20">
-      <h2 class="text-3xl font-bold text-gray-800">Video gallery</h2>
-      <p class="text-slate-500 mt-2">
+    <section class="mx-auto max-w-5xl mt-16 md:mt-20 px-4 md:px-0">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">Video gallery</h2>
+      <p class="text-slate-500 text-sm md:text-base mt-2">
         Short-form edits, campaign clips, product showcases, behind-the-scenes
         videos, and business atmosphere content.
       </p>
 
       {
         videos.length > 0 ? (
-          <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8">
             {videos.map((video) => (
               <div class="rounded-md overflow-hidden bg-black">
                 <video
@@ -164,12 +164,12 @@ const toInstagramEmbedUrl = (url: string) => {
             ))}
           </div>
         ) : (
-          <div class="mt-8 border-2 border-dashed border-[#D8DEE9] rounded-md p-8 text-center">
-            <h3 class="font-semibold text-xl text-gray-800">
+          <div class="mt-8 border-2 border-dashed border-[#D8DEE9] rounded-md p-6 md:p-8 text-center">
+            <h3 class="font-semibold text-lg md:text-xl text-gray-800">
               Video gallery ready for your edits
             </h3>
-            <p class="text-slate-500 mt-2">
-              Drop video files into <code>public/portfolio/videos</code> and
+            <p class="text-slate-500 text-sm md:text-base mt-2">
+              Drop video files into <code class="text-xs md:text-sm">public/portfolio/videos</code> and
               rebuild the site to publish them here.
             </p>
           </div>
