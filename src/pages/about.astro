@@ -14,21 +14,30 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
 <Layout title="About">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">About</Fragment>
-      <Fragment slot="desc">We are a small passionate team.</Fragment>
+      <Fragment slot="title">About nebneb</Fragment>
+      <Fragment slot="desc">
+        A small agency helping small businesses grow online with clarity,
+        creativity, and practical support.
+      </Fragment>
     </Sectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
       <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Astro.
+        We understand small businesses because we are building one too.
       </h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
+        Time, budget, consistency, and visibility can be difficult when you are
+        running a local business. nebneb helps turn those challenges into a
+        practical marketing system, with storytelling, content, websites, SEO,
+        reviews, and online management working together.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">
+        We do more than create nice-looking content. We help small businesses
+        build recognisable local brands that customers can find, understand, and
+        choose with confidence.
       </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
+    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-12">
       {
         publishedTeamMembers.map((teamMemberEntry) => (
           <div class="group">
@@ -48,6 +57,13 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
               <h3 class="text-sm text-slate-500">
                 {teamMemberEntry.data.title}
               </h3>
+              {
+                teamMemberEntry.data.bio && (
+                  <p class="text-sm leading-relaxed text-slate-500 mt-3">
+                    {teamMemberEntry.data.bio}
+                  </p>
+                )
+              }
             </div>
           </div>
         ))

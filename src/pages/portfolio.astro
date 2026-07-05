@@ -1,0 +1,180 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import Link from "@/components/ui/link.astro";
+
+const photoDir = path.join(process.cwd(), "public", "portfolio", "photos");
+const videoDir = path.join(process.cwd(), "public", "portfolio", "videos");
+
+const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
+const videoExtensions = new Set([".mp4", ".webm", ".mov"]);
+
+const getPublicFiles = (dir: string, allowedExtensions: Set<string>) => {
+  if (!fs.existsSync(dir)) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(dir)
+    .filter((file) => allowedExtensions.has(path.extname(file).toLowerCase()))
+    .sort((a, b) => a.localeCompare(b));
+};
+
+const photos = getPublicFiles(photoDir, imageExtensions);
+const videos = getPublicFiles(videoDir, videoExtensions);
+
+// Paste Instagram post or Reel URLs here when you want them to appear on the portfolio page.
+const instagramPosts = [
+  "https://www.instagram.com/reel/DA_WNzKIK9u/",
+  "https://www.instagram.com/reel/DBqS0J1oSju/",
+  "https://www.instagram.com/reel/DJUc4p-IHJZ/",
+];
+
+const toInstagramEmbedUrl = (url: string) => {
+  const instagramUrl = new URL(url);
+  const cleanPath = instagramUrl.pathname.endsWith("/")
+    ? instagramUrl.pathname
+    : `${instagramUrl.pathname}/`;
+
+  return `https://www.instagram.com${cleanPath}embed`;
+};
+---
+
+<Layout title="Portfolio">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Portfolio</Fragment>
+      <Fragment slot="desc">
+        A growing collection of social media videos, photography, and creative
+        content produced for small businesses and local brands.
+      </Fragment>
+    </Sectionhead>
+
+    <div class="mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        Content that helps people see, trust, and remember your business.
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500 mt-3">
+        This space is built for finished Instagram posts, short-form videos,
+        and original photography. As new work is added, the gallery will keep
+        the same clean layout while giving visitors a simple way to explore the
+        content.
+      </p>
+    </div>
+
+    <section class="mx-auto max-w-5xl mt-16">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-800">Instagram work</h2>
+          <p class="text-slate-500 mt-2">
+            Reels and posts can be embedded here once they are live on
+            Instagram.
+          </p>
+        </div>
+        <Link href="/contact" style="outline">Plan content like this</Link>
+      </div>
+
+      {
+        instagramPosts.length > 0 ? (
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {instagramPosts.map((postUrl) => (
+              <iframe
+                src={toInstagramEmbedUrl(postUrl)}
+                title="Instagram portfolio post"
+                class="w-full min-h-[520px] rounded-md border-2 border-[#D8DEE9] bg-white"
+                loading="lazy"
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="mt-8 border-2 border-dashed border-[#D8DEE9] rounded-md p-8 text-center">
+            <h3 class="font-semibold text-xl text-gray-800">
+              Instagram portfolio coming soon
+            </h3>
+            <p class="text-slate-500 mt-2">
+              Add Instagram Reel or post links in the portfolio page file to
+              show embedded social content here.
+            </p>
+          </div>
+        )
+      }
+    </section>
+
+    <section class="mx-auto max-w-5xl mt-20">
+      <h2 class="text-3xl font-bold text-gray-800">Photography gallery</h2>
+      <p class="text-slate-500 mt-2">
+        Original photos from shoots, brand sessions, products, food, interiors,
+        teams, and local business stories.
+      </p>
+
+      {
+        photos.length > 0 ? (
+          <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 mt-8">
+            {photos.map((photo) => (
+              <a
+                href={`/portfolio/photos/${photo}`}
+                class="group block overflow-hidden rounded-md bg-gray-100 mb-4 break-inside-avoid"
+              >
+                <img
+                  src={`/portfolio/photos/${photo}`}
+                  alt={`nebneb portfolio photo: ${path.parse(photo).name}`}
+                  class="w-full h-auto transition group-hover:scale-105"
+                  loading="lazy"
+                />
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div class="mt-8 border-2 border-dashed border-[#D8DEE9] rounded-md p-8 text-center">
+            <h3 class="font-semibold text-xl text-gray-800">
+              Photo gallery ready for your work
+            </h3>
+            <p class="text-slate-500 mt-2">
+              Drop image files into <code>public/portfolio/photos</code> and
+              rebuild the site to publish them here.
+            </p>
+          </div>
+        )
+      }
+    </section>
+
+    <section class="mx-auto max-w-5xl mt-20">
+      <h2 class="text-3xl font-bold text-gray-800">Video gallery</h2>
+      <p class="text-slate-500 mt-2">
+        Short-form edits, campaign clips, product showcases, behind-the-scenes
+        videos, and business atmosphere content.
+      </p>
+
+      {
+        videos.length > 0 ? (
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            {videos.map((video) => (
+              <div class="rounded-md overflow-hidden bg-black">
+                <video
+                  src={`/portfolio/videos/${video}`}
+                  controls
+                  preload="metadata"
+                  class="w-full aspect-video object-cover"
+                  aria-label={`nebneb portfolio video: ${path.parse(video).name}`}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div class="mt-8 border-2 border-dashed border-[#D8DEE9] rounded-md p-8 text-center">
+            <h3 class="font-semibold text-xl text-gray-800">
+              Video gallery ready for your edits
+            </h3>
+            <p class="text-slate-500 mt-2">
+              Drop video files into <code>public/portfolio/videos</code> and
+              rebuild the site to publish them here.
+            </p>
+          </div>
+        )
+      }
+    </section>
+  </Container>
+</Layout>

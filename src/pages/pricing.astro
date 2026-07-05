@@ -6,70 +6,66 @@ import PricingCard from "@/components/pricing.astro";
 
 const pricing = [
   {
-    name: "Personal",
-    price: "Free",
+    name: "Content Creation",
+    price: "Video, photo, and storytelling",
     popular: false,
     features: [
-      "Lifetime free",
-      "Up to 3 users",
-      "Unlimited Pages",
-      "Astro Sub domain",
-      "Basic Integrations",
-      "Community Support",
+      "Social media video production",
+      "Professional videography and photography",
+      "Short-form videos for Reels, TikTok, YouTube Shorts, and Facebook",
+      "Brand story, behind-the-scenes, product, service, and lifestyle content",
+      "Social-media-ready content formats",
+      "Monthly content planning",
     ],
     button: {
-      text: "Get Started",
-      link: "/",
+      text: "Start a content plan",
+      link: "/contact",
     },
   },
   {
-    name: "Startup",
-    price: {
-      monthly: "$19",
-      annual: "$16",
-      discount: "10%",
-      original: "$24",
-    },
+    name: "Online Presence",
+    price: "Websites, SEO, and reviews",
     popular: true,
     features: [
-      "All Free Features",
-      "Up to 20 users",
-      "20 Custom domains",
-      "Unlimited Collaborators",
-      "Advanced Integrations",
-      "Priority Support",
+      "Website design for small businesses",
+      "SEO management and recommendations",
+      "Google Business Profile management",
+      "Google Reviews management",
+      "Clear brand positioning and local visibility support",
+      "Monthly performance review and recommendations",
     ],
     button: {
-      text: "Get Started",
-      link: "#",
+      text: "Improve visibility",
+      link: "/contact",
     },
   },
   {
-    name: "Enterprise",
-    price: "Custom",
+    name: "Managed Marketing",
+    price: "Ongoing digital support",
     popular: false,
     features: [
-      "All Pro Features",
-      "Unlimited Custom domains",
-      "99.99% Uptime SLA",
-      "SAML & SSO Integration",
-      "Dedicated Account Manager",
-      "24/7 Phone Support",
+      "Social media account management",
+      "Caption writing and hashtag strategy",
+      "Content scheduling and publishing",
+      "Community engagement",
+      "Seasonal campaign planning",
+      "Local business marketing strategy",
+      "Review and recommendation sessions",
     ],
     button: {
-      text: "Contact us",
+      text: "Plan ongoing support",
       link: "/contact",
     },
   },
 ];
 ---
 
-<Layout title="Pricing">
+<Layout title="Services">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Pricing</Fragment>
+      <Fragment slot="title">Services</Fragment>
       <Fragment slot="desc">
-        Simple & Predictable pricing. No Surprises.
+        Flexible marketing support for small businesses and local brands.
       </Fragment>
     </Sectionhead>
 
