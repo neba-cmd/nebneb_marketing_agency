@@ -141,40 +141,5 @@ const toInstagramEmbedUrl = (url: string) => {
       }
     </section>
 
-    <section class="mx-auto max-w-5xl mt-16 md:mt-20 px-4 md:px-0">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">Video gallery</h2>
-      <p class="text-slate-500 text-sm md:text-base mt-2">
-        Short-form edits, campaign clips, product showcases, behind-the-scenes
-        videos, and business atmosphere content.
-      </p>
-
-      {
-        videos.length > 0 ? (
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8">
-            {videos.map((video) => (
-              <div class="rounded-md overflow-hidden bg-black">
-                <video
-                  src={`/portfolio/videos/${video}`}
-                  controls
-                  preload="metadata"
-                  class="w-full aspect-video object-cover"
-                  aria-label={`nebneb portfolio video: ${path.parse(video).name}`}
-                />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div class="mt-8 border-2 border-dashed border-[#D8DEE9] rounded-md p-6 md:p-8 text-center">
-            <h3 class="font-semibold text-lg md:text-xl text-gray-800">
-              Video gallery ready for your edits
-            </h3>
-            <p class="text-slate-500 text-sm md:text-base mt-2">
-              Drop video files into <code class="text-xs md:text-sm">public/portfolio/videos</code> and
-              rebuild the site to publish them here.
-            </p>
-          </div>
-        )
-      }
-    </section>
   </Container>
 </Layout>
