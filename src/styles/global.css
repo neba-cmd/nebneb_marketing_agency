@@ -9,6 +9,32 @@
     'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+:root {
+  color-scheme: light;
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-border: #e2e8f0;
+  --color-link: #2563eb;
+  --color-link-hover: #1d4ed8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-background: #020617;
+    --color-surface: #0f172a;
+    --color-surface-muted: #111827;
+    --color-text: #f8fafc;
+    --color-text-muted: #cbd5e1;
+    --color-border: #334155;
+    --color-link: #93c5fd;
+    --color-link-hover: #bfdbfe;
+  }
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -24,6 +50,41 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  a {
+    color: var(--color-link);
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
+  }
+
+  input,
+  textarea,
+  select {
+    color: var(--color-text);
+    background-color: var(--color-surface);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  ::selection {
+    background-color: rgba(96, 165, 250, 0.35);
+    color: var(--color-text);
   }
 
   /* Mobile-friendly touch targets */
@@ -58,5 +119,38 @@
     p {
       @apply text-base leading-relaxed;
     }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-white {
+    background-color: var(--color-surface) !important;
+  }
+
+  .bg-gray-50,
+  .bg-gray-100 {
+    background-color: var(--color-surface-muted) !important;
+  }
+
+  .text-gray-800,
+  .text-gray-700,
+  .text-gray-600,
+  .text-black {
+    color: var(--color-text) !important;
+  }
+
+  .text-gray-400 {
+    color: #94a3b8 !important;
+  }
+
+  .border-gray-300,
+  .border-gray-200,
+  .border-slate-200 {
+    border-color: var(--color-border) !important;
+  }
+
+  .shadow-sm,
+  .shadow-md {
+    box-shadow: 0 1px 2px rgba(2, 6, 23, 0.45) !important;
   }
 }
