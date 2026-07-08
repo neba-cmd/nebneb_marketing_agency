@@ -35,6 +35,20 @@
   }
 }
 
+/* Class-based dark mode: enable by adding `dark` to `html` or a top-level container */
+html.dark,
+.dark {
+  color-scheme: dark;
+  --color-background: #020617;
+  --color-surface: #0f172a;
+  --color-surface-muted: #111827;
+  --color-text: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-border: #334155;
+  --color-link: #93c5fd;
+  --color-link-hover: #bfdbfe;
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -153,4 +167,65 @@
   .shadow-md {
     box-shadow: 0 1px 2px rgba(2, 6, 23, 0.45) !important;
   }
+}
+
+/* Mirror the above utilities when using the `.dark` class */
+html.dark .bg-white,
+.dark .bg-white {
+  background-color: var(--color-surface) !important;
+}
+
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  background-color: var(--color-surface-muted) !important;
+}
+
+html.dark .text-gray-800,
+html.dark .text-gray-700,
+html.dark .text-gray-600,
+html.dark .text-black,
+.dark .text-gray-800,
+.dark .text-gray-700,
+.dark .text-gray-600,
+.dark .text-black {
+  color: var(--color-text) !important;
+}
+
+html.dark .text-gray-400,
+.dark .text-gray-400 {
+  color: #94a3b8 !important;
+}
+
+html.dark .border-gray-300,
+html.dark .border-gray-200,
+html.dark .border-slate-200,
+.dark .border-gray-300,
+.dark .border-gray-200,
+.dark .border-slate-200 {
+  border-color: var(--color-border) !important;
+}
+
+html.dark .shadow-sm,
+html.dark .shadow-md,
+.dark .shadow-sm,
+.dark .shadow-md {
+  box-shadow: 0 1px 2px rgba(2, 6, 23, 0.45) !important;
+}
+
+/* Force light-first appearance unless `.dark` is explicitly present.
+   This prevents the OS `prefers-color-scheme: dark` from switching the site
+   to dark mode on initial load. */
+html:not(.dark),
+body:not(.dark) {
+  color-scheme: light;
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-border: #e2e8f0;
+  --color-link: #2563eb;
+  --color-link-hover: #1d4ed8;
 }
